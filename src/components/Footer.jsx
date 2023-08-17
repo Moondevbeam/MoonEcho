@@ -6,7 +6,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="fixed bottom-0 w-full bg-gray-200 text-center py-4">
+    <footer className="md:fixed bottom-0 w-full bg-gray-200 text-center py-4">
       <div className="flex justify-center">
         <a
           href="https://www.linkedin.com/"

@@ -32,7 +32,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="mt-8 mx-4">
+    <div className="mt-8 mx-4 my-8">
       <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqData.map((faq, index) => (
