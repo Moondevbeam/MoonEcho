@@ -32,9 +32,9 @@ const FAQ = () => {
   };
 
   return (
-    <div className="mt-8 mx-4 my-8">
-      <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
-      <div className="space-y-4">
+    <div className="mt-8 mx-4">
+      <h2 className="text-2xl mb-4 font-semibold text-center ">Frequently Asked Questions</h2>
+      <div className='space-y-4'>
         {faqData.map((faq, index) => (
           <div key={index} className="border p-4 rounded-md hover:bg-gray-200">
             <button

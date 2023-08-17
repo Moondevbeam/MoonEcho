@@ -33,8 +33,9 @@ function Sign() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-96 p-8 bg-white rounded-lg shadow-md">
+    <div className='bgland'>
+    <div className="flex items-center justify-center min-h-screen backdrop-blur-sm">
+      <div className="w-96 p-8 bg-white rounded-xl shadow-sm">
         <p className="mb-4 text-left">
           <Link to="/" className="text-blue-400 hover:text-blue-700">
             <FontAwesomeIcon icon={faChevronLeft} size="md" />
@@ -107,6 +108,7 @@ function Sign() {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 }

@@ -9,8 +9,10 @@ import FAQ from '../components/FAQ';
 function LandingPage() {
   return (
     <div>
+      <div className='bgland2'>
       <Header />
       <Features />
+      </div>
       <CTA />
       <FAQ/>
       <CookieNotice/>
