@@ -17,7 +17,7 @@ const FAQ = () => {
       answer: "Unfortunately, once a poll is created, it cannot be edited. We recommend carefully reviewing your poll and options before finalizing the creation process."
     },
     {
-      question: "Is it possible to change my vote after voting?",
+      question: "Is it possible to change my vote?",
       answer: "No, our system is designed to ensure the integrity of the voting process. Once you've submitted your vote, it's final and cannot be changed. Make sure to consider all options before making your choice!"
     }
     // Add more FAQ items here
