@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# MoonEcho
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MoonEcho is an online polling platform that allows users to create, share, and participate in polls. This repository contains the source code for the MoonEcho web application.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+- [Creating Polls](#creating-polls)
+- [Participating in Polls](#participating-in-polls)
+- [FAQs](#faqs)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### What is MoonEcho?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+MoonEcho is an online polling platform that enables users to create and participate in polls on various topics. It provides a user-friendly interface to gather opinions and preferences from a wide audience.
 
-### `npm test`
+### Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Create Polls:** Easily create new polls by adding questions and answer options.
+- **Participate:** Join polls and vote for your preferred options.
+- **View Results:** See real-time poll results after casting your vote.
+- **User-Friendly Interface:** Intuitive design for seamless navigation.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js
+- Firebase account
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone this repository: `git clone https://github.com/your-username/MoonEcho.git`
+2. Navigate to the project directory: `cd MoonEcho`
+3. Install dependencies: `npm install`
+4. Set up Firebase configuration in `src/firebase/firebase.js`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Start the development server: `npm start`
+2. Access the application in your browser at `http://localhost:3000`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Creating Polls
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### How to Create a Poll
 
-## Learn More
+1. Log in to your MoonEcho account.
+2. From your dashboard, select "Create Poll."
+3. Add a descriptive title for your poll.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Adding Questions and Answer Options
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Enter the poll question in the designated field.
+2. Add answer options by clicking "Add Option."
+3. You can include a minimum of 2 and a maximum of 5 options.
 
-### Code Splitting
+## Participating in Polls
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Voting for an Option
 
-### Analyzing the Bundle Size
+1. Access the poll you want to participate in.
+2. Choose your preferred answer option.
+3. Click "Vote" to cast your vote.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Viewing Poll Results
 
-### Making a Progressive Web App
+1. Once you've voted, you'll immediately see the real-time poll results.
+2. The results will display the number of votes each option received.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## FAQs
 
-### Advanced Configuration
+### How do I create an account?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To create an account, go to the registration page and provide your email and password.
 
-### Deployment
+### How can I share a poll with others?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+After creating a poll, you will receive a unique link for that poll. You can share this link with others via email, social media, or messaging platforms.
 
-### `npm run build` fails to minify
+### Can I change the poll options after creating it?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+No, once a poll is created, its options cannot be edited. You can consider creating a new poll with the desired options.
