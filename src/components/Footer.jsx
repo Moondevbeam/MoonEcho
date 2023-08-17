@@ -3,8 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bottom-0 w-full bg-gray-200 text-center py-4">
+    <footer className="fixed bottom-0 w-full bg-gray-200 text-center py-4">
       <div className="flex justify-center">
         <a
           href="https://www.linkedin.com/"
@@ -23,10 +25,11 @@ function Footer() {
           <FontAwesomeIcon icon={faGithub} size="lg" />
         </a>
       </div>
-      <div className='flex justify-start mx-2'>
-      <p className="mt-2 text-sm ">
-        &copy; 2023 MoonEcho Polls. All rights reserved.
-      </p>
+      <div className="flex justify-between mx-2">
+        <p className="text-sm">
+      {currentYear} MoonEcho
+        </p>
+        <p>Moonbeam</p>
       </div>
     </footer>
   );

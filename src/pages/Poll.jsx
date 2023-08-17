@@ -77,6 +77,14 @@ function Poll() {
             </p>
           </div>
         ))}
+        {hasVoted && (
+          <div className="mt-4">
+            <p className="text-green-500">Thank you for voting!</p>
+            <Link to="/" className="text-blue-500 hover:underline">
+              Homepage
+            </Link>
+          </div>
+        )}
         {!hasVoted && !cookies[pollId] && (
           <button
             onClick={handleVote}
@@ -85,19 +93,11 @@ function Poll() {
             Vote
           </button>
         )}
-        {hasVoted && (
-          <div className="mt-4">
-            <p className="text-green-500">Thanks for voting!</p>
-            <Link to="/" className="text-blue-500 hover:underline">
-            Homepage
-            </Link>
-          </div>
-        )}
-        {cookies[pollId] && (
+        {cookies[pollId] && !hasVoted && (
           <div className="mt-4">
             <p className="text-red-500">You have already voted.</p>
             <Link to="/" className="text-blue-500 hover:underline">
-            Homepage
+              Homepage
             </Link>
           </div>
         )}
