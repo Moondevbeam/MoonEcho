@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { firestore } from '../firebase/firebase';
-import Cookies from 'js-cookie'; // Import js-cookie
+import Cookies from 'js-cookie'; // Import the js-cookie library
 
 function Poll() {
   const { pollId } = useParams();
@@ -14,22 +14,17 @@ function Poll() {
       try {
         const pollRef = firestore.collection('polls').doc(pollId);
         const pollSnapshot = await pollRef.get();
-  
+
         if (pollSnapshot.exists) {
           setPollData(pollSnapshot.data());
         } else {
           console.log('Poll not found');
         }
-  
-        // Check if the cookie is present for this poll
-        if (Cookies.get(pollId)) {
-          setHasVoted(true);
-        }
       } catch (error) {
         console.error('Error fetching poll data:', error);
       }
     };
-  
+
     fetchPollData();
   }, [pollId]);
 
@@ -49,10 +44,7 @@ function Poll() {
         });
 
         setHasVoted(true);
-
-        // Set the cookie using js-cookie
-        Cookies.set(pollId, true, { expires: 365, path: '/' });
-
+        Cookies.set(pollId, true, { expires: 365, path: '/' }); // Set the cookie to indicate that the user has voted
       } catch (error) {
         console.error('Error voting:', error);
       }
