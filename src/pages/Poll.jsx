@@ -1,31 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { firestore } from '../firebase/firebase';
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie'; // Import js-cookie
 
 function Poll() {
   const { pollId } = useParams();
   const [pollData, setPollData] = useState(null);
   const [selectedOption, setSelectedOption] = useState('');
   const [hasVoted, setHasVoted] = useState(false);
-  const [cookies, setCookie] = useCookies([pollId]);
 
   useEffect(() => {
     const fetchPollData = async () => {
       try {
         const pollRef = firestore.collection('polls').doc(pollId);
         const pollSnapshot = await pollRef.get();
-
+  
         if (pollSnapshot.exists) {
           setPollData(pollSnapshot.data());
         } else {
           console.log('Poll not found');
         }
+  
+        // Check if the cookie is present for this poll
+        if (Cookies.get(pollId)) {
+          setHasVoted(true);
+        }
       } catch (error) {
         console.error('Error fetching poll data:', error);
       }
     };
-
+  
     fetchPollData();
   }, [pollId]);
 
@@ -45,7 +49,10 @@ function Poll() {
         });
 
         setHasVoted(true);
-        setCookie(pollId, true, { path: '/' }); // Set the cookie to indicate that the user has voted
+
+        // Set the cookie using js-cookie
+        Cookies.set(pollId, true, { expires: 365, path: '/' });
+
       } catch (error) {
         console.error('Error voting:', error);
       }
@@ -68,7 +75,7 @@ function Poll() {
                 value={index}
                 checked={selectedOption === index.toString()}
                 onChange={() => setSelectedOption(index.toString())}
-                disabled={hasVoted || cookies[pollId]}
+                disabled={hasVoted || Cookies.get(pollId)}
               />
               <span className="text-lg">{option.text}</span>
             </label>
@@ -85,7 +92,7 @@ function Poll() {
             </Link>
           </div>
         )}
-        {!hasVoted && !cookies[pollId] && (
+        {!hasVoted && !Cookies.get(pollId) && (
           <button
             onClick={handleVote}
             className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
@@ -93,7 +100,7 @@ function Poll() {
             Vote
           </button>
         )}
-        {cookies[pollId] && !hasVoted && (
+        {Cookies.get(pollId) && !hasVoted && (
           <div className="mt-4">
             <p className="text-red-500">You have already voted.</p>
             <Link to="/" className="text-blue-500 hover:underline">

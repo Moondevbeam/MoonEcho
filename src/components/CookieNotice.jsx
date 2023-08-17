@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCookieBite } from '@fortawesome/free-solid-svg-icons';
 import { Disclosure } from '@headlessui/react';
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie'; // Import js-cookie
 
 function CookieNotice() {
   // eslint-disable-next-line
   const [showNotice, setShowNotice] = useState(true);
-  const [cookies, setCookie] = useCookies(['cookieAccepted']);
 
   const handleAccept = () => {
-    setCookie('cookieAccepted', true, { path: '/' });
+    Cookies.set('cookieAccepted', true, { expires: 365, path: '/' });
     setShowNotice(false);
   };
 
   return (
-    !cookies.cookieAccepted && (
+    !Cookies.get('cookieAccepted') && (
       <Disclosure>
         {({ open }) => (
           <>
